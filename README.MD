@@ -29,3 +29,9 @@ The purpose of this project is to build a model which predicts customer churn us
 | payment_type_id          | 5026 non-null int64   | Indicates the type of payment method the customer uses. 1 indicates electronic check, 2 indicates mailed check, 3 indicates bank transfer (automatic), 4 indicates credit card (automatic)                 |
 | internet_service_type_id | 5026 non-null int64   | Indicates the type of internet service the customer has, 1 is DLS, 2 is fiber optic, 3 is none                                                                                                             |
 | churn                    | 5026 non-null int64   | Indicates if the customer stopped using the company's product or service. 1 indicates churn, 2 indicates no churn                                                                                          |
+
+
+
+
+
+To view the presentation, please click here(https://www.canva.com/design/DAD6kLeGec8/JUm9G7dao7PNw8tl8H3pqA/view?utm_content=DAD6kLeGec8&utm_campaign=designshare&utm_medium=link&utm_source=sharebutton)
