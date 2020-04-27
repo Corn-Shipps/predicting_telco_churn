@@ -14,5 +14,5 @@ def wrangle_telco():
     scaler = MinMaxScaler()
     df['total_charges_scaled'] = scaler.fit_transform(df['total_charges'].values.reshape(-1,1))
     df['tenure_less_than_12'] = df['tenure']<12
-    df['tenure_less_than_7'] = df['tenure']<7
+    df['tenure_less_than_8'] = df['tenure']<8
     return df
