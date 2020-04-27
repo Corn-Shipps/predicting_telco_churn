@@ -13,4 +13,6 @@ def wrangle_telco():
     df['automatic_payment'] = ((df['payment_type_id'] == 3) | (df['payment_type_id'] == 4))
     scaler = MinMaxScaler()
     df['total_charges_scaled'] = scaler.fit_transform(df['total_charges'].values.reshape(-1,1))
+    df['tenure_less_than_12'] = df['tenure']<12
+    df['tenure_less_than_7'] = df['tenure']<7
     return df
