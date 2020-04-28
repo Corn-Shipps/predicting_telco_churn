@@ -54,7 +54,8 @@ To answer this question, our data science team contructed a model to predict cus
 | internet_service_type_id | 7043 non-null int64   | Indicates the type of internet service the customer has, 1 is DLS, 2 is fiber optic, 3 is none                                                                                                             |
 | churn                    | 7043 non-null int64   | Indicates if the customer stopped using the company's product or service. 1 indicates churn, 2 indicates no churn                                                                                          |
 | automatic_payment        | 7043 non-null bool    | Indicates if the customer participates in an automatic form of payment. True indicates they use a form of automatic payment, False indicates they do not                                                   |
-| total_charges_scaled     | 7043 non-null float64 | Total charges column scaled using the MinMax Scaler from Sklearn                                                                                                                                           |
+| monthly_charges_scaled   | 7043 non-null float64 | Monthly charges column scaled using the MinMax Scaler from Sklearn                                                                                                                                         |
+| tenure_3_or_less         | 7043 non-null bool    | Indicates if the customer has been with the company for 3 months or less                                                                                                                                   |
 
 
 
