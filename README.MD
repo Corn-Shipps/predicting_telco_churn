@@ -111,8 +111,6 @@ Below is a figure which most directly answers the question __why__ people are ch
 ![Box plot](box_plot.png)
 
 
-## Feature Selection
-
 ## Modeling
 
 ## Evaluation
