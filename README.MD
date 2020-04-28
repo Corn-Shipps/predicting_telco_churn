@@ -64,20 +64,80 @@ To answer this question, our data science team contructed a model to predict cus
 
 ## Aquisition
 
-## Preparation
+- The data can be pulled in from a function called `get_telco_data` which runs a SQL query of the telco_churn database. The results are comprised of features from four tables:
+> - contract_types
+>- internet_service_types
+>- customers
+>- payment_types
+- The results were then converted to a pandas dataframe. 
+- The function is stored in acuire.py and imported to this notebook
 
+
+## Preparation
+The following changes are applied to the dataframe via the wrangle_telco function store in the wrangle.py file:
+>- Total_charges column is based on the tenure and monthly_charges column. There were several null values in the tenure column and we assumed that meant the customer was at the company for less than one month but likely would still be charged for at least one month of services. So the nulls in tenure were filled with a 1 and the value for monthly charges were set to that of other customers with a tenure of 1.
+>- A boolean column of automatic payment types was added that indicates if the customer uses an automatic form of payment
+>- A column of monthly_charges_scaled was added for the purposes of vizualization and modeling
+>- Another boolean columnn of tenure_3_or_less indicates if the customer has been a part of the company for 3 or less months
+A description of the rest of the features can be found in the data dictionary in the README.md>
 ### Hypothesis testing
+
+#### First Hypothesis
+- $H_0$: Tenure has no effect on churn rate
+- $H_a$: Tenure does have an effect on churn rate
+- alpha ($\alpha$): 1 - confidence level (95% confidence level -> $\alpha = .05$)
+
+#### Second Hypothesis
+
+- $H_0$: people who churn are paying more per month than those who arent
+- $H_a$: people who churn are paying the same or less than those who dont churn
+- alpha ($\alpha$): 1 - confidence level (95% confidence level -> $\alpha = .05$)
+
+> A t value of 16.965 and pvalu of 0.37e-60 indicates the likelyhood of customers not churning due to paying more per month is extremely small. 
 
 ## Exploration
 
-## Feature Selection
+During this section, the team identified patterns in the data which may help to isolate which features were most helpful in predicting churn.
 
+- The visualizations generated in this section aim to show the relationships between churning and:
+> 1. Contract type 
+> 2. Tenure of three months or less
+> 3. Monthly charges
+> 4. Automatic payment
+> 5. Senior Citizen status
+
+Below is a figure which most directly answers the question __why__ people are churning:
+
+![Box plot](box_plot.png)
+
+
+It appears that people who churn pay on average more than people who do not churn. Customers who believe they are not recieving enough value for their dollars may be motivated to churn.
 ## Modeling
+The modeling stage involved created several versions of the following 4 models using Sklearn:
+>- Logistic Regression: Technically a regression algorithm used for predicting discrete outcomes (binomial and multinomial).The output is a value between 0 and 1 that represents the probability of one class over the other
+>- Decision Tree: A sequence of rules that can be used to classify 2 or more classes. Each node represents a single input variable (x) and a split point or class of that variable. The leaf nodes of the tree contain an output variable (y) which is used to make a prediction. Predictions are made by walking the splits of the tree until arriving at a leaf node and output the class value at that leaf node.
+>- Random Forest: A series of decision trees that based on multiple samples of training data. Random forest decision trees are then created so that rather than selecting optimal split points, suboptimal splits are made by introducing randomness. The models created for each sample of the data are therefore more different than they otherwise would be, but still accurate in their unique and different ways. Combining their predictions results in a better estimate of the true underlying output value. 
+>- K Nearest Neighbors: Makes predictions based on how close a new data point is to known data points.Predictions are made for a new data point by searching through the entire training set for the K most similar instances (the neighbors) and summarizing the output variable for those K instances.
+
+The two hyperparameters that were adusted were:
+- The number of neighbors in KNearestNeighbors (set to 7)
+- The max_depth of the Decision Tree (set to 3)
 
 ## Evaluation
+To start, a baseline model was created by simply predicting the positive case (no churn) every time. 
 
+- Each model has been evaluated based on accuracy, precisioin and recall. 
+- For the purposes of this project, we chose the model that produced the highest accuracy as we wanted to maximize predicting both the customers who are most likely to churn and those least likely to churn. 
 
-# Techinical Skills and Programs used
+Based on that metric, the best model generated was Logit Classifier.
+- This model had the highest accuracy percentage at 78% meaning out of every 100 customers, this model will corectly predict who will churn and who will not for 78 customers.
+
+# Conclusion
+
+- The customers most likely to churn are senior citizens on the month-to-month plan who are not enrolled in automatic payments. 
+- Based on the analysis done in this project, they are most likely churning due to higher costs per month than their counterparts on other contract types. 
+
+# Techinical Skills
 
 - Python (including libraries)
 - SQL
@@ -86,3 +146,5 @@ To answer this question, our data science team contructed a model to predict cus
 - Canva
 
 To view the presentation, please [click here](https://www.canva.com/design/DAD6kLeGec8/JUm9G7dao7PNw8tl8H3pqA/view?utm_content=DAD6kLeGec8&utm_campaign=designshare&utm_medium=link&utm_source=sharebutton)
+
+#### Note: To reproduce this you will need your own env.py file generating the URL to access the SQL server. All other modules and functions are included in the repository.
