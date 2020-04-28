@@ -27,6 +27,7 @@ To answer this question, our data science team contructed a model to predict cus
 #### _Further analysis recommended:_
 
 - Determine which services those customers are using at a higher rate
+- Determine cost of losing customers
 
 
 # Data Dictionary
