@@ -67,3 +67,54 @@ def decision_tree_metrics(train, test):
     # Print a classification report
     target_names = ["did not churn", "churn"]
     print(classification_report(y_test, y_pred, target_names = target_names))
+    
+    
+    
+# Programmatically create K-Nearest Neighbors model
+def knn_metrics(train, test):
+# Create X and y variables for each dataset
+    X_train = train[['contract_type_id', 'senior_citizen',  'tenure_3_or_less', 'monthly_charges_scaled']]
+    y_train = train[['churn']]
+    X_test = test[['contract_type_id', 'senior_citizen',  'tenure_3_or_less', 'monthly_charges_scaled']]
+    y_test = test[['churn']]
+    
+    # Create and fit the model; set a random seed for reproducibility
+    knn = KNeighborsClassifier(n_neighbors=7)
+    knn.fit(X_train, y_train)
+    
+    # Use the model to make predictions
+    y_pred = knn.predict(X_test)
+    y_pred[:10]
+    
+    # Print a classification report
+    target_names = ["did not churn", "churn"]
+    print(classification_report(y_test, y_pred, target_names = target_names))
+    
+    
+
+# Programmatically create Random Forest model
+def rf_metrics(train, test):
+# Create X and y variables for each dataset
+    X_train = train[['contract_type_id', 'senior_citizen',  'tenure_3_or_less', 'monthly_charges_scaled']]
+    y_train = train[['churn']]
+    X_test = test[['contract_type_id', 'senior_citizen',  'tenure_3_or_less', 'monthly_charges_scaled']]
+    y_test = test[['churn']]
+    
+    # Create and fit the model; set a random seed for reproducibility
+    rf = RandomForestClassifier(bootstrap=True, 
+                            class_weight=None, 
+                            criterion='gini',
+                            min_samples_leaf=3,
+                            n_estimators=100,
+                            max_depth=3, 
+                            random_state=123)
+
+    rf.fit(X_train, y_train)
+    # Use the model to make predictions
+    y_pred = rf.predict(X_test)
+    y_pred[:10]
+    
+    # Print a classification report
+    target_names = ["did not churn", "churn"]
+    print(classification_report(y_test, y_pred, target_names = target_names))
+    
