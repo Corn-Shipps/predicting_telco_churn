@@ -118,3 +118,6 @@ def rf_metrics(train, test):
     target_names = ["did not churn", "churn"]
     print(classification_report(y_test, y_pred, target_names = target_names))
     
+    
+    
+    
