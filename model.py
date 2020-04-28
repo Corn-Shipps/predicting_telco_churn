@@ -12,6 +12,10 @@ from sklearn.ensemble import RandomForestClassifier
 # Programmatically get all the model columns
 # .loc[starting_row:ending_row, starting_column:ending_column]
 def model_accuracy(df):
+    '''
+    This function takes in all the model predictions and baseline predictions 
+    and returns a dataframe with each model's accuracy in order
+    '''
     models = df.loc[:, "baseline":"Random_Forest"].columns.tolist()
     models
     
@@ -31,6 +35,14 @@ def model_accuracy(df):
 
 # programatically create logit model
 def logit_metrics(train, test):
+    '''
+    Takes in a train and test dataframe
+    Defines the X and y train and test variables
+    Creates a model
+    Fits the model
+    Makes predictions using the model
+    Returns a classification report for the model
+    '''
 # Create X and y variables for each dataset
     X_train = train[['contract_type_id', 'senior_citizen',  'tenure_3_or_less', 'monthly_charges_scaled']]
     y_train = train[['churn']]
@@ -52,6 +64,14 @@ def logit_metrics(train, test):
 
 # programatically create decision_tree model
 def decision_tree_metrics(train, test):
+    '''
+    Takes in a train and test dataframe
+    Defines the X and y train and test variables
+    Creates a model
+    Fits the model
+    Makes predictions using the model
+    Returns a classification report for the model
+    '''
 # Create X and y variables for each dataset
     X_train = train[['contract_type_id', 'senior_citizen',  'tenure_3_or_less', 'monthly_charges_scaled']]
     y_train = train[['churn']]
@@ -74,6 +94,14 @@ def decision_tree_metrics(train, test):
     
 # Programmatically create K-Nearest Neighbors model
 def knn_metrics(train, test):
+    '''
+    Takes in a train and test dataframe
+    Defines the X and y train and test variables
+    Creates a model
+    Fits the model
+    Makes predictions using the model
+    Returns a classification report for the model
+    '''
 # Create X and y variables for each dataset
     X_train = train[['contract_type_id', 'senior_citizen',  'tenure_3_or_less', 'monthly_charges_scaled']]
     y_train = train[['churn']]
@@ -96,6 +124,14 @@ def knn_metrics(train, test):
 
 # Programmatically create Random Forest model
 def rf_metrics(train, test):
+    '''
+    Takes in a train and test dataframe
+    Defines the X and y train and test variables
+    Creates a model
+    Fits the model
+    Makes predictions using the model
+    Returns a classification report for the model
+    '''
 # Create X and y variables for each dataset
     X_train = train[['contract_type_id', 'senior_citizen',  'tenure_3_or_less', 'monthly_charges_scaled']]
     y_train = train[['churn']]
