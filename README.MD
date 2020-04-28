@@ -1,8 +1,24 @@
-# To Churn or Not to Churn.
+# Why are our customers churning?.
 
-The purpose of this project is to build a model which predicts customer churn using classification strategies.
+To answer this question, our data science team contructed a model to predict customer churn using classification techniques.
 
+# Deliverables
 
+### The team was asked to provide:
+> - A detailed report answering the question, _"Why are our customers churning"?_ which includes analysis depicting who is most likely to churn along with insight on why they may be choosing to do so
+> - A .csv file with uniquely identifiable customer id, the probability and predictioin of churn using our best model
+> - Slide deck describing the metrics of the chosen model along with a presentation to explain how we arrived at our decision
+> - `telco_churn.customers.py` file that will take in a new dataset, (in the exact same form of the one you acquired from telco_churn.customers) and perform all the transformations necessary to run the model we have developed on this new dataset to provide probabilities and predictions.
+
+# Executive Summary
+### Key Takeaways
+
+- The most important features for determining customer churn include:
+> 1. Contract type 
+> 2. Tenure of three months or less
+> 3. Monthly charges
+> 4. Automatic payment
+> 5. Senior Citizen status
 
 
 # Data Dictionary
