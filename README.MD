@@ -20,6 +20,14 @@ To answer this question, our data science team contructed a model to predict cus
 > 4. Automatic payment
 > 5. Senior Citizen status
 
+- The question about why our customers are churning is answered in two parts: Who is most likely to churn and what is it about that group that may be motivating them to churn
+- Essentially, customers with a month-to-month, not using automatic payments tend to churn within the first three months and many of them are classifed as senior citizens. 
+- A look at thier monthly charges revealed, that they pay on average 13 dollars more per month than customers that did not churn
+
+#### _Further analysis recommended:_
+
+- Determine which services those customers are using at a higher rate
+
 
 # Data Dictionary
 |          Feature         |    Count/data type    | Description                                                                                                                                                                                                |
@@ -50,6 +58,29 @@ To answer this question, our data science team contructed a model to predict cus
 
 
 
+# Pipeline
 
+## Aquisition
+
+## Preparation
+
+### Hypothesis testing
+
+## Exploration
+
+## Feature Selection
+
+## Modeling
+
+## Evaluation
+
+
+# Techinical Skills and Programs used
+
+- Python (including libraries)
+- SQL
+- Hypothesis testing
+- Logistic Regression, Decision Tree, Random Forest, K Nearest Neighbors models
+- Canva
 
 To view the presentation, please [click here](https://www.canva.com/design/DAD6kLeGec8/JUm9G7dao7PNw8tl8H3pqA/view?utm_content=DAD6kLeGec8&utm_campaign=designshare&utm_medium=link&utm_source=sharebutton)
