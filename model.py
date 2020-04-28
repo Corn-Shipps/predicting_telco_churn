@@ -44,7 +44,8 @@ def logit_metrics(train, test):
     y_pred[:10]
     
     # Print a classification report
-    print(classification_report(y_test, y_pred))
+    target_names = ["did not churn", "churn"]
+    print(classification_report(y_test, y_pred1, target_names = target_names))
 
 
 # programatically create decision_tree model
@@ -64,4 +65,5 @@ def decision_tree_metrics(train, test):
     y_pred[:10]
     
     # Print a classification report
-    print(classification_report(y_test, y_pred))
+    target_names = ["did not churn", "churn"]
+    print(classification_report(y_test, y_pred1, target_names = target_names))
