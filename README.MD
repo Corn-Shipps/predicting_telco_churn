@@ -64,11 +64,52 @@ To answer this question, our data science team contructed a model to predict cus
 
 ## Aquisition
 
-## Preparation
+- The data can be pulled in from a function called `get_telco_data` which runs a SQL query of the telco_churn database. The results are comprised of features from four tables:
+> - contract_types
+>- internet_service_types
+>- customers
+>- payment_types
+- The results were then converted to a pandas dataframe. 
+- The function is stored in acuire.py and imported to this notebook
 
+
+## Preparation
+The following changes are applied to the dataframe via the wrangle_telco function store in the wrangle.py file:
+> Total_charges column is based on the tenure and monthly_charges column. There were several null values in the tenure column and we assumed that meant the customer was at the company for less than one month but likely would still be charged for at least one month of services. So the nulls in tenure were filled with a 1 and the value for monthly charges were set to that of other customers with a tenure of 1.
+> A boolean column of automatic payment types was added that indicates if the customer uses an automatic form of payment
+> A column of monthly_charges_scaled was added for the purposes of vizualization and modeling
+> Another boolean columnn of tenure_3_or_less indicates if the customer has been a part of the company for 3 or less months
+A description of the rest of the features can be found in the data dictionary in the README.md>
 ### Hypothesis testing
 
+#### First Hypothesis
+- $H_0$: Tenure has no effect on churn rate
+- $H_a$: Tenure does have an effect on churn rate
+- alpha ($\alpha$): 1 - confidence level (95% confidence level -> $\alpha = .05$)
+
+#### Second Hypothesis
+
+- $H_0$: people who churn are paying more per month than those who arent
+- $H_a$: people who churn are paying the same or less than those who dont churn
+- alpha ($\alpha$): 1 - confidence level (95% confidence level -> $\alpha = .05$)
+
+> t value of 16.965 and pvalu of 0.37e-60 indicates the likelyhood of customers not churning due to paying more per month is extremely small. 
+
 ## Exploration
+
+During this section, the team identified patterns in the data which may help to isolate which features were most helpful in predicting churn.
+
+- The visualizations generated in this section aim to show the relationships between churning and:
+> 1. Contract type 
+> 2. Tenure of three months or less
+> 3. Monthly charges
+> 4. Automatic payment
+> 5. Senior Citizen status
+
+Below is a figure which most directly answers the question __why__ people are churning:
+
+![Box plot](box_plot.png)
+
 
 ## Feature Selection
 
