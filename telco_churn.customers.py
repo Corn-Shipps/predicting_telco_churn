@@ -20,7 +20,7 @@ def wrangle_telco():
 
 
 
-def encode_columns():
+def encode_columns(df):
     train, test = train_test_split(df, random_state=123, train_size=.80)
 
     encoder = LabelEncoder()
