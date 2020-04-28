@@ -157,5 +157,37 @@ def rf_metrics(train, test):
     print(classification_report(y_test, y_pred, target_names = target_names))
     
     
+def predictions_csv(df):
+    # create predicions dataframe by adding in customer_id from original df
+    predictions = pd.DataFrame(df.customer_id)
+
+    # Split the data between train and test
+    train, test = train_test_split(df, random_state=123, train_size=.80)
     
+    # Define X, X_train, y_train variables
+    X = df[['contract_type_id', 'senior_citizen',  'tenure_3_or_less', 'monthly_charges_scaled', 'payment_type_id']]
+    X_train = train[['contract_type_id', 'senior_citizen',  'tenure_3_or_less', 'monthly_charges_scaled', 'payment_type_id']]
+    y_train = train[['churn']]
+
+    # Create model and fit it to the training set
+    logit = LogisticRegression(random_state = 123)
+    logit.fit(X_train, y_train)
+
+    # Predict probability of churn
+    y_pred_proba = logit.predict_proba(X)
+
+    # Predict churn
+    y_pred_logit = logit.predict(X)
+
+    # Add probabilities and predictions to dataframe
+    predictions = pd.DataFrame(
+    {'Customer_ID': df.customer_id,
+    'Probability_of_churn': y_pred_proba[:,1],
+    'Probability_of_not_churning': y_pred_proba[:,0],
+    'Churn_Prediction': y_pred_logit})
+
+    # Create csv file
+
+    return predictions.to_csv('telco_churn_predictions.csv')
+
  
