@@ -12,7 +12,7 @@ from sklearn.ensemble import RandomForestClassifier
 # Programmatically get all the model columns
 # .loc[starting_row:ending_row, starting_column:ending_column]
 def model_accuracy(df):
-    models = df.loc[:, "baseline":"Decision_Tree"].columns.tolist()
+    models = df.loc[:, "baseline":"Random_Forest"].columns.tolist()
     models
     
     output = []
@@ -122,4 +122,4 @@ def rf_metrics(train, test):
     
     
     
-    
+ 
