@@ -4,8 +4,8 @@ from sklearn.model_selection import train_test_split
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import classification_report
-from sklearn.metrics import KNeighborsClassifier
-from sklearn.metrics import RandomForestClassifier
+from sklearn.neighbors import KNeighborsClassifier
+from sklearn.ensemble import RandomForestClassifier
 
 
 
