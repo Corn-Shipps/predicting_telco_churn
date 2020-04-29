@@ -5,6 +5,11 @@ from sklearn.preprocessing import MinMaxScaler
 
 
 def wrangle_telco():
+    '''
+    Transforms data brought in from SQL to handle nulls in tenure
+    Turn the total_charges column to a float
+    Add calculated fields
+    '''
     df = acquire.get_telco_data()
     df.tenure.replace(0, 1, inplace=True)
     df.total_charges = df.total_charges.str.strip()
