@@ -106,9 +106,9 @@ During this section, the team identified patterns in the data which may help to 
 > 4. Automatic payment
 > 5. Senior Citizen status
 
-Below is a figure which most directly answers the question __why__ people are churning:
+Below is a figure which most directly answers the question __who are churnin and why__:
 
-![Box plot](box_plot.png)
+![Swarm plot](swarn_plot.png)
 
 
 It appears that people who churn pay on average more than people who do not churn. Customers who believe they are not recieving enough value for their dollars may be motivated to churn.
