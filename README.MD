@@ -114,10 +114,16 @@ Below is a figure which most directly answers the question __why__ people are ch
 It appears that people who churn pay on average more than people who do not churn. Customers who believe they are not recieving enough value for their dollars may be motivated to churn.
 ## Modeling
 The modeling stage involved created several versions of the following 4 models using Sklearn:
->- Logistic Regression: Technically a regression algorithm used for predicting discrete outcomes (binomial and multinomial).The output is a value between 0 and 1 that represents the probability of one class over the other
->- Decision Tree: A sequence of rules that can be used to classify 2 or more classes. Each node represents a single input variable (x) and a split point or class of that variable. The leaf nodes of the tree contain an output variable (y) which is used to make a prediction. Predictions are made by walking the splits of the tree until arriving at a leaf node and output the class value at that leaf node.
->- Random Forest: A series of decision trees that based on multiple samples of training data. Random forest decision trees are then created so that rather than selecting optimal split points, suboptimal splits are made by introducing randomness. The models created for each sample of the data are therefore more different than they otherwise would be, but still accurate in their unique and different ways. Combining their predictions results in a better estimate of the true underlying output value. 
->- K Nearest Neighbors: Makes predictions based on how close a new data point is to known data points.Predictions are made for a new data point by searching through the entire training set for the K most similar instances (the neighbors) and summarizing the output variable for those K instances.
+>- Logistic Regression: "Technically a regression algorithm used for predicting discrete outcomes (binomial and multinomial).The output is a value between 0 and 1 that represents the probability of one class over the other"
+>- "Decision Tree: A sequence of rules that can be used to classify 2 or more classes. Each node represents a single input variable (x) and a split point or class of that variable. The leaf nodes of the tree contain an output variable (y) which is used to make a prediction. Predictions are made by walking the splits of the tree until arriving at a leaf node and output the class value at that leaf node."
+>- "Random Forest: A series of decision trees that based on multiple samples of training data. Random forest decision trees are then created so that rather than selecting optimal split points, suboptimal splits are made by introducing randomness. The models created for each sample of the data are therefore more different than they otherwise would be, but still accurate in their unique and different ways. Combining their predictions results in a better estimate of the true underlying output value." 
+>- "K Nearest Neighbors: Makes predictions based on how close a new data point is to known data points.Predictions are made for a new data point by searching through the entire training set for the K most similar instances (the neighbors) and summarizing the output variable for those K instances."
+
+>> __Citation for descriptions:__
+>> - [Logistic Regression](https://ds.codeup.com/7-classification/6.1-logistic-regression/#visualize-model)
+>> - [Decision Tree](https://ds.codeup.com/7-classification/6.2-decision-trees/)
+>> - [Random Forest](https://ds.codeup.com/7-classification/6.3-random-forests/)
+>> - [K Nearest Neighbors](https://ds.codeup.com/7-classification/6.4-knn/)
 
 The two hyperparameters that were adusted were:
 - The number of neighbors in KNearestNeighbors (set to 7)
